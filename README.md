@@ -3,5 +3,5 @@
  -running time\
  -Start, Stop, Reset, and Save buttons\
  -a list of times, with the personal record (PR) highlighted\
-    * each time record will have a delete button, and a date stamp\
+    &nbs,&nbs* each time record will have a delete button, and a date stamp\
  -for now, the list of times will be stored in localStorage\
