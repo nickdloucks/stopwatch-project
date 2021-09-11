@@ -20,6 +20,7 @@ class App extends React.Component {
     // Add another condition like a maximum time limit to prevent an infinite loop,
     // or prevent callback hell/stack overflow in a recusrive function
     // example: to make it a 48-hour maximum timer, <totSec> must be <= 172,800 to prevent infinite loop
+    // ***USE shouldComponentUpdate() HOOK???
   }
   render(){
 
@@ -27,9 +28,10 @@ class App extends React.Component {
      <React.Fragment className="App">
         <h1 className="App-header">Stopwatch *header*</h1>
 
-        <Timer timeElapsed={this.state.time}/>
+        <Timer timeElapsed={this.state.time}/>{/*render <Timer> and 
+          override its timeElapsed prop with updated time from App.state */}
 
-        <Controls />
+        <Controls running={this.state.running}/>{/*let the controls know if the timer is running */}
 
         {/* <List/> component should receive a list of times saved by user
         <List times={this.state.saved}/>
