@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 class Timer extends React.Component {
     constructor(props){
         super(props);
-
+        this.timeElapsed = this.props.timeElapsed;
     }
 
     render(){
-        let totSec = this.props.timeElapsed; // total seconds since hitting start
+        let totSec = this.timeElapsed; // total seconds since hitting start
         let hrs = (totSec - (totSec % 3600)) / 3600; // 3,600 seconds in an hour
         let mins = (totSec - (hrs * 3600)) % 60; // 60 seconds in a minute
         let sec = totSec % 60; // remaining seconds less than a minute

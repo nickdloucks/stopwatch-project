@@ -7,10 +7,16 @@ class List extends React.Component {
     }
 
     render(){
+        const times = this.props.times.map(time => <li>{<Timer timeElapsed={time}/>}</li>);
+            // handle edge cases where list is empty
+            // sort times by stortest to longest
+            // add "personal record" indicator to best time
         return(
-            <ol>
-                <li><Timer timeElapsed={this.props.times}/></li>
-            </ol>
+            <>
+                <ol>
+                    {times}
+                </ol>
+            </>
         );
     }
 }
