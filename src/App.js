@@ -8,7 +8,10 @@ class App extends React.Component {
     super(props);
     this.state = {
       running: false, // timer is activated by pressing <Start>, deactivated by pressing <Stop> button
-      time: 0 // number of seconds elapsed since pressing <Start> button
+      time: 0, // number of seconds elapsed since pressing <Start> button
+      saved: [] // list of saved times, stored as total seconds for easy comparsion
+        // the <List/> and <Timer/> components will display these times parsed out into {00:00:00} format
+        // ****ADD DATE STAMP FUNCTIONALITY LATER AND USE AS TIME ID
     };
 
   }
@@ -28,8 +31,10 @@ class App extends React.Component {
 
         <Controls />
 
-        {/* insert List component here*/}
- 
+        {/* <List/> component should receive a list of times saved by user
+        <List times={this.state.saved}/>
+        */}
+
      </React.Fragment>
     );
   }
