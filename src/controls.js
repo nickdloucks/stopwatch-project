@@ -11,15 +11,23 @@ class Controls extends React.Component {
 
     handleStart(){
         // implement event handler
+        // set App.state.running to <true>
+        // begin <clockTick> loop, incrementing App.state.time once for each second elapsed
     }
     handleStop(){
         // implement event handler
+        // set App.state.running to <false>, which should end <clockTick> loop
     }
     handleReset(){
         // implement event handler
+        // verify {App.state.running == false}
+        // overwrite App.state.time to be == 0
     }
     handleSave(){
         // implement event handler
+        // verify {App.state.running == false}
+        // if {App.state.time > 0}, save the time to the <List> component
+        // then <List> component should dynamically render the list of saved times
     }
 
     render(){
