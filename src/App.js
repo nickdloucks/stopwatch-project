@@ -9,6 +9,7 @@ class App extends React.Component {
     this.state = {
       running: false, // timer is activated by pressing <Start>, deactivated by pressing <Stop> button
       time: 0, // number of seconds elapsed since pressing <Start> button
+      date: '', // will hold date/time associated with when the timer was started
       saved: [] // list of saved times, stored as total seconds for easy comparsion
         // the <List/> and <Timer/> components will display these times parsed out into {00:00:00} format
         // ****ADD DATE STAMP FUNCTIONALITY LATER AND USE AS TIME ID
