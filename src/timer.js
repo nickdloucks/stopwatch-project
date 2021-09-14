@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Timer extends React.Component {
+    // this component behaves as a display of the current instance of a running timer
+    // it shows the current time elapsed and wil update every time a second passes
     constructor(props){
         super(props);
         this.timeElapsed = this.props.timeElapsed;
     }
 
-    render(){
+    render(){ // parse total secons into a digital clock display format:
         let totSec = this.timeElapsed; // total seconds since hitting start
         let hrs = (totSec - (totSec % 3600)) / 3600; // 3,600 seconds in an hour
         let mins = (totSec - (hrs * 3600)) % 60; // 60 seconds in a minute
