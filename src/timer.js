@@ -7,6 +7,7 @@ class Timer extends React.Component {
     constructor(props){
         super(props);
         this.timeElapsed = this.props.timeElapsed;
+        this.dateStamp = this.props.dateStamp;
     }
 
     render(){ // parse total secons into a digital clock display format:
@@ -21,6 +22,8 @@ class Timer extends React.Component {
                     <span id ="hours">{hrs}:</span>
                     <span id ="minutes">{mins}:</span><p>:</p>
                     <span id ="seconds">{sec}</span>
+                    <br/>
+                    <span>Date started: {this.dateStamp}</span>
                 </div>
             );
         }else{ // if no time has elapsed or timer is not currently active, show all zeroes
@@ -32,6 +35,12 @@ class Timer extends React.Component {
         }
     }
 }
-Timer.defaultProps = {timeElapsed: 0};
-Timer.propTypes = {timeElapsed: PropTypes.number.isRequired};
+Timer.defaultProps = {
+    timeElapsed: 0,
+    dateStamp: ''
+};
+Timer.propTypes = {
+    timeElapsed: PropTypes.number.isRequired,
+    dateStamp: PropTypes.string.isRequired
+};
 export default Timer;

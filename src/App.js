@@ -77,8 +77,12 @@ class App extends React.Component {
      <React.Fragment className="App">
         <h1 className="App-header">Stopwatch *header*</h1>
 
-        <Timer timeElapsed={this.state.time}/> {/*render <Timer> and 
-          override its timeElapsed prop with updated time from App.state */}
+        <Timer 
+          timeElapsed = {this.state.time}
+          dateStamp = {this.state.date}
+        /> {/*render <Timer> and 
+          override its timeElapsed prop with updated time from App.state.
+          also override its dateStamp so it can be identified in a list of times*/}
 
         <Controls running = {this.state.running} 
           startTime = {this.startTime}
