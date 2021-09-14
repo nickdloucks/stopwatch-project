@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 class Controls extends React.Component {
     constructor(props){
@@ -33,5 +34,10 @@ class Controls extends React.Component {
         )
     }
 }
-
+Controls.propTypes = {
+    startTime: PropTypes.func.isRequired,
+    stopTime: PropTypes.func.isRequired,
+    resetTime: PropTypes.func.isRequired,
+    saveTime: PropTypes.func.isRequired
+};
 export default Controls;
