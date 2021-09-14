@@ -19,11 +19,19 @@ class App extends React.Component {
     this.resetTime = this.resetTime.bind(this);
     this.saveTime = this.saveTime.bind(this);
   }
-  
+
   startTime(){
+    let now = new Date(); // get the current date and save it as a stamp to identify the time when/if it gets saved
+    let dateStamp = `${now.getMonth()+1}-${now.getDate()}-${now.getFullYear()} at ${now.getHours()}:${now.getMinutes}:${now.get()}`
+    console.log(dateStamp + " = dateStamp for this instance of timer")
+    this.setState({
+      date: dateStamp,
+      running: true
+    })
     // implement event handler
     // set App.state.running to <true> 
-    // begin <clockTick> loop, incrementing App.state.time once for each second elapsed
+    // stamp the currnent instance of running timer with the date/time, use as a key when saved?
+    // ****begin <clockTick> loop, incrementing App.state.time once for each second elapsed
   }
   stopTime(){
     // implement event handler
@@ -33,7 +41,8 @@ class App extends React.Component {
     this.setState(
       {
           running: false,
-          time: 0
+          time: 0,
+          date: ''
       }
     );
     // implement event handler
@@ -42,13 +51,11 @@ class App extends React.Component {
   }
   saveTime(){
     let timeToSave = this.state.time;
-    let now = new Date();
-    let timeStamp = `${now.getMonth()+1}-${now.getDate()}-${now.getFullYear()} at ${now.getHours()}:${now.getMinutes}:${now.get()}`
     this.setState(
         {
             running: false,
             time: 0,
-            saved: this.state.saved.append([timeToSave, timeStamp]) //
+            saved: this.state.saved.append([timeToSave, this.state.date]) //
         }
     );
     // implement event handler
