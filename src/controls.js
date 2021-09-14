@@ -1,5 +1,4 @@
 import React from 'react';
-import App from './App';
 
 class Controls extends React.Component {
     constructor(props){
@@ -11,41 +10,16 @@ class Controls extends React.Component {
     }
 
     handleStart(){
-
-        // implement event handler
-        // set App.state.running to <true> 
-        // begin <clockTick> loop, incrementing App.state.time once for each second elapsed
+        this.props.startTime();
     }
     handleStop(){
-        // implement event handler
-        // set App.state.running to <false>, which should end <clockTick> loop
+        this.props.stopTime();
     }
     handleReset(){
-        App.setState(
-            {
-                running: false,
-                time: 0
-            }
-        );
-        // implement event handler
-        // verify {App.state.running == false} ***or check this Controls component's props.running
-        // overwrite App.state.time to be == 0
+        this.props.resetTime();
     }
     handleSave(){
-        let timeToSave = App.state.time;
-        let now = new Date();
-        let timeStamp = `${now.getMonth()+1}-${now.getDate()}-${now.getFullYear()} at ${now.getHours()}:${now.getMinutes}:${now.get()}`
-        App.setState(
-            {
-                running: false,
-                time: 0,
-                saved: App.state.saved.append([timeToSave, timeStamp])
-            }
-        );
-        // implement event handler
-        // verify {App.state.running == false} ***or check this Controls component's props.running
-        // if {App.state.time > 0}, save in App.state and pass all the times to the <List> component
-        // then <List> component should dynamically render the list of saved times
+        this.props.saveTime();
     }
 
     render(){
@@ -59,4 +33,5 @@ class Controls extends React.Component {
         )
     }
 }
+
 export default Controls;

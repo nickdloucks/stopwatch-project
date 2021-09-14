@@ -14,8 +14,49 @@ class App extends React.Component {
         // the <List/> and <Timer/> components will display these times parsed out into {00:00:00} format
         // ****ADD DATE STAMP FUNCTIONALITY LATER AND USE AS TIME ID
     };
-
+    this.startTime = this.startTime.bind(this);
+    this.stopTime = this.stopTime.bind(this);
+    this.resetTime = this.resetTime.bind(this);
+    this.saveTime = this.saveTime.bind(this);
   }
+  
+  startTime(){
+    // implement event handler
+    // set App.state.running to <true> 
+    // begin <clockTick> loop, incrementing App.state.time once for each second elapsed
+  }
+  stopTime(){
+    // implement event handler
+    // set App.state.running to <false>, which should end <clockTick> loop
+  }
+  resetTime(){
+    this.setState(
+      {
+          running: false,
+          time: 0
+      }
+    );
+    // implement event handler
+    // verify {App.state.running == false} ***or check this Controls component's props.running
+    // overwrite App.state.time to be == 0
+  }
+  saveTime(){
+    let timeToSave = this.state.time;
+    let now = new Date();
+    let timeStamp = `${now.getMonth()+1}-${now.getDate()}-${now.getFullYear()} at ${now.getHours()}:${now.getMinutes}:${now.get()}`
+    this.setState(
+        {
+            running: false,
+            time: 0,
+            saved: this.state.saved.append([timeToSave, timeStamp]) //
+        }
+    );
+    // implement event handler
+    // verify {App.state.running == false} ***or check this Controls component's props.running
+    // if {App.state.time > 0}, save in App.state and pass all the times to the <List> component
+    // then <List> component should dynamically render the list of saved times
+  }
+
   handleClockTick(){
     // re-render Timer every time another second has elapsed, until stop button is pressed.
     // Add another condition like a maximum time limit to prevent an infinite loop,
@@ -29,10 +70,15 @@ class App extends React.Component {
      <React.Fragment className="App">
         <h1 className="App-header">Stopwatch *header*</h1>
 
-        <Timer timeElapsed={this.state.time}/>{/*render <Timer> and 
+        <Timer timeElapsed={this.state.time}/> {/*render <Timer> and 
           override its timeElapsed prop with updated time from App.state */}
 
-        <Controls running={this.state.running}/>{/*let the controls know if the timer is running */}
+        <Controls running = {this.state.running} 
+          startTime = {this.startTime}
+          stopTime = {this.stopTime}
+          resetTime = {this.resetTime}
+          saveTime = {this.saveTime}
+        /> {/*let the controls know whether the timer is running, and allow the buttons to access App's methods */}
 
         {/* <List/> component should receive a list of times saved by user
         <List times={this.state.saved}/>
