@@ -23,7 +23,7 @@ class App extends React.Component {
   startTime(){
     let now = new Date(); // get the current date and save it as a stamp to identify the time when/if it gets saved
     let dateStamp = `${now.getMonth()+1}-${now.getDate()}-${now.getFullYear()}\
-     at ${now.getHours()}:${now.getMinutes}:${now.getSeconds()}` // template literal for displaying date:
+     at ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}` // template literal for displaying date:
           // example:{ MM-DD-YYY at 12:56:03 }
     console.log(dateStamp + " = dateStamp for this instance of timer")
 
