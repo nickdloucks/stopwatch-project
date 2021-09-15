@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-class Controls extends React.Component {
+class Controls extends React.PureComponent {
+    // switched to "PureComponent" in hopes of avoiding unnecessary re-renders.
+    // This component should theoretically not receive any props that are 
+    // different from when it initially is mounted
     constructor(props){
         super(props);
         this.handleStart = this.handleStart.bind(this);
@@ -11,16 +14,16 @@ class Controls extends React.Component {
     }
 
     handleStart(){
-        this.props.startTime();
+        this.props.startTime(); // tell App.js to start the timer
     }
     handleStop(){
-        this.props.stopTime();
+        this.props.stopTime(); // tell App.js to stop the timer
     }
     handleReset(){
-        this.props.resetTime();
+        this.props.resetTime(); // tell App.js to reset the timer
     }
     handleSave(){
-        this.props.saveTime();
+        this.props.saveTime(); // tell App.js to save the current instance of timer
     }
 
     render(){
