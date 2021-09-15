@@ -1,6 +1,7 @@
 import React from 'react';
 import {default as Timer} from './timer.js';
 import {default as Controls} from './controls.js';
+import PropTypes from 'prop-types';
 import './App.css';
 
 class App extends React.Component {
@@ -18,6 +19,7 @@ class App extends React.Component {
     this.stopTime = this.stopTime.bind(this);
     this.resetTime = this.resetTime.bind(this);
     this.saveTime = this.saveTime.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   startTime(){
@@ -42,26 +44,22 @@ class App extends React.Component {
     // set App.state.running to <false>, which should end <clockTick> loop
   }
   resetTime(){
-    this.setState(
-      {
+    this.setState({
           running: false,
           time: 0,
           date: ''
-      }
-    );
+    });
     // implement event handler
     // verify {App.state.running == false} ***or check this Controls component's props.running
     // overwrite App.state.time to be == 0
   }
   saveTime(){
     let timeToSave = this.state.time;
-    this.setState(
-        {
+    this.setState({
             running: false,
             time: 0,
             saved: this.state.saved.append([timeToSave, this.state.date]) //
-        }
-    );
+    });
     // implement event handler
     // verify {App.state.running == false} ***or check this Controls component's props.running
     // if {App.state.time > 0}, save in App.state and pass all the times to the <List> component
@@ -69,12 +67,22 @@ class App extends React.Component {
   }
 
   handleClockTick(){
-    // re-render Timer every time another second has elapsed, until stop button is pressed.
     // Add another condition like a maximum time limit to prevent an infinite loop,
     // or prevent callback hell/stack overflow in a recusrive function
     // example: to make it a 48-hour maximum timer, <totSec> must be <= 172,800 to prevent infinite loop
     // ***USE shouldComponentUpdate() HOOK???
   }
+  componentDidMount(){ // 1st attempt at kicking off the timer loop,
+      // intending to re-render timer each time a second passes
+      // need to optimize so other components don't re-render unnecessarily
+    if (this.state.running && (this.state.time <= this.props.maxTime)){ // maximum time limit to prevent infinite loop
+      // maxTime is passed as a prop in index.js
+      setInterval(this.setState({   // re-render Timer every time another second has elapsed, until stop button is pressed.
+        time: this.state.time + 1
+      }), 1000)
+    }
+  }
+
   render(){
 
     return (
@@ -103,5 +111,6 @@ class App extends React.Component {
     );
   }
 }
-
+App.defaultProps = {maxTime : 172800} // default maxTime of 48 hours to prevent infinite loop
+App.propTypes = {maxTime : PropTypes.number.isRequired}
 export default App;
