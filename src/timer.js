@@ -21,9 +21,9 @@ class Timer extends React.Component {
         if (totSec > 0){ // if there is a totalElapsed time, render it dynamically
             return(
                 <div id="timer">
-                    <span id ="hours">{hrs}:</span>
-                    <span id ="minutes">{mins}:</span><p>:</p>
-                    <span id ="seconds">{sec}</span>
+                    <span id ="hours" class='timer'>{hrs.toString().padStart(2,'0')}<span class='timeColon'>:</span></span>
+                    <span id ="minutes" class='timer'>{mins.toString().padStart(2,'0')}<span class='timeColon'>:</span></span><p>:</p>
+                    <span id ="seconds" class='timer'>{sec.toString().padStart(2,'0')}</span>
                     <br/>
                     <span>Date started: {this.dateStamp}</span>
                 </div>
@@ -31,7 +31,7 @@ class Timer extends React.Component {
         }else{ // if no time has elapsed or timer is not currently active, show all zeroes
             return(
                 <div id="timer">
-                    00:00:00
+                    <span class='timer'>00<span class='timeColon'>:</span>00<span class='timeColon'>:</span>00</span>
                 </div> 
             );
         }
