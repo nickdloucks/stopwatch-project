@@ -13,8 +13,10 @@ class Timer extends React.Component {
     render(){ // parse total secons into a digital clock display format:
         let totSec = this.timeElapsed; // total seconds since hitting start
         let hrs = (totSec - (totSec % 3600)) / 3600; // 3,600 seconds in an hour
+        //*******THIS might not WORK, be sure to test */
         let mins = (totSec - (hrs * 3600)) % 60; // 60 seconds in a minute
         let sec = totSec % 60; // remaining seconds less than a minute
+        console.log(`totSec=${totSec}:_ hrs=${hrs}, min=${mins}, sec=${sec}`)
 
         if (totSec > 0){ // if there is a totalElapsed time, render it dynamically
             return(
