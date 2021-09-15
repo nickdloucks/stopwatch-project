@@ -6,7 +6,10 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App maxtTime = {259200} />
+    {/*maxTime prop is meant to prevent an infinite loop in case the stop button is never pressed
+      here, its default is overridden to 3 days instead of 2 (259200 seconds in 3 days)
+    */}
   </React.StrictMode>,
   document.getElementById('root')
 );
