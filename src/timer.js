@@ -18,13 +18,8 @@ class Timer extends React.Component {
             let mins_hrs = totSec - sec; // total number of seconds that add up to complete minutes
             // total seconds with remainder (less than 60 sec) cut off
             let mins = (mins_hrs / 60) % 60; // total minutes less than an hour
-            let hrs = "hours not programmed yet"; /////////////************** */
-            /*
-            let totSec = this.timeElapsed; // total seconds since hitting start
-            let hrs = (totSec - (totSec % 3600)) / 3600; // 3,600 seconds in an hour
-            let mins = (totSec - (hrs * 3600)) % 60; // 60 seconds in a minute
-            let sec = totSec % 60; // remaining seconds less than a minute
-            */
+            let hrs = (totSec - (totSec % 3600)) / 3600; // hours
+
             console.log(`totSec=${totSec}:_ hrs=${hrs}, min=${mins}, sec=${sec}`);
 
             return(
