@@ -55,10 +55,11 @@ class App extends React.Component {
   }
   saveTime(){
     let timeToSave = this.state.time;
+    let newTimeRecord = [timeToSave, this.state.date];
     this.setState({
-            running: false,
-            time: 0,
-            saved: this.state.saved.append([timeToSave, this.state.date]) //
+      saved: [...this.state.saved, newTimeRecord],
+      running: false,
+      time: 0
     });
     // implement event handler
     // verify {App.state.running == false} ***or check this Controls component's props.running
