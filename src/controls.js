@@ -30,7 +30,7 @@ class Controls extends React.PureComponent {
         return(
             <>
                 <button onClick={this.handleStart}>Start</button>
-                <button onClick={this.handleStop}>Stop</button>
+                <button onClick={this.handleStop}>End</button>
                 <button onClick={this.handleReset}>Reset</button>
                 <button onClick={this.handleSave}>Save</button>
             </> 
