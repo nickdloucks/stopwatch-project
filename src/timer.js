@@ -34,7 +34,7 @@ class Timer extends React.Component {
         }else{ // if no time has elapsed or timer is not currently active, show all zeroes
             return(
                 <div id="timer">
-                    <span class='timer'>00<span class='timeColon'>:</span>00<span class='timeColon'>:</span>00</span>
+                    <span class='timer'>00:00:00</span>
                 </div> 
             );
         }
