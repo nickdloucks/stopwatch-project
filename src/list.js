@@ -5,10 +5,15 @@ class List extends React.Component {
     constructor(props){
         super(props);
         this.deleteTime = this.deleteTime.bind(this);
+
+        this.state = {
+            savedTimes: [] // move state of saved times down to this child List component to manage in List's scope
+        }
     }
 
     deleteTime(){
         // delete the record from the list
+        // use a callback funtion (passed as props to List) to update
     }
 
     render(){
