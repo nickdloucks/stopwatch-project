@@ -33,7 +33,9 @@ class App extends React.Component {
     this.setState({
       date: dateStamp,
       running: true
-    })
+    });
+
+
     // implement event handler
     // set App.state.running to <true> 
     // stamp the currnent instance of running timer with the date/time, use as a key when saved?
@@ -70,7 +72,14 @@ class App extends React.Component {
     // then <List> component should dynamically render the list of saved times
   }
 
-  handleClockTick(){
+  handleClockTick(){ // asynchronous??
+    while ((this.state.running) && (this.state.time <= this.props.maxTime)) {
+      // prevent infinite loop by using the maxTime prop
+      setTimeout(this.setState({time: this.state.time++}), 990); 
+      // wait 990 milliseconds before incrementing the seconds count
+      // 990 is subject to change based on the time complexity/ performance of the app:
+      // need to account for the milliseconds it takes to run the program
+    }
     // Add another condition like a maximum time limit to prevent an infinite loop,
     // or prevent callback hell/stack overflow in a recusrive function
     // example: to make it a 48-hour maximum timer, <totSec> must be <= 172,800 to prevent infinite loop
