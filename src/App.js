@@ -24,7 +24,7 @@ class App extends React.Component {
 
   startTime(){
     let now = new Date(); // get the current date and save it as a stamp to identify the time when/if it gets saved
-    let dateStamp = `${now.getMonth()+1}-${now.getDate()}-${now.getFullYear()}\
+    let dateStamp = ` Time on ${now.getMonth()+1}-${now.getDate()}-${now.getFullYear()}\
      at ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}` // template literal for displaying date:
           // example:{ MM-DD-YYY at 12:56:03 }
     console.log(dateStamp + " = dateStamp for this instance of timer")
@@ -40,6 +40,9 @@ class App extends React.Component {
     // ****begin <clockTick> loop, incrementing App.state.time once for each second elapsed
   }
   stopTime(){
+    this.setState({
+      running: false
+    });
     // implement event handler
     // set App.state.running to <false>, which should end <clockTick> loop
   }
