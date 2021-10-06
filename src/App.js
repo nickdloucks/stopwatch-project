@@ -23,6 +23,7 @@ class App extends React.Component {
   }
 
   startTime(){
+    console.log("start button hit");
     let now = new Date(); // get the current date and save it as a stamp to identify the time when/if it gets saved
     let dateStamp = ` Time on ${now.getMonth()+1}-${now.getDate()}-${now.getFullYear()}\
      at ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}` // template literal for displaying date:
@@ -34,7 +35,7 @@ class App extends React.Component {
       date: dateStamp,
       running: true
     });
-
+    console.log("running? " + this.state.running);
 
     // implement event handler
     // set App.state.running to <true> 
@@ -42,23 +43,29 @@ class App extends React.Component {
     // ****begin <clockTick> loop, incrementing App.state.time once for each second elapsed
   }
   stopTime(){
+    console.log("stop button hit")
     this.setState({
       running: false
     });
+    console.log("running? " + this.state.running);
     // implement event handler
     // set App.state.running to <false>, which should end <clockTick> loop
   }
   resetTime(){
+    console.log("reset button hit");
     this.setState({
           running: false,
           time: 0,
           date: ''
     });
+    console.log("running? " + this.state.running);
+    console.log("time? " + this.state.time);
     // implement event handler
     // verify {App.state.running == false} ***or check this Controls component's props.running
     // overwrite App.state.time to be == 0
   }
   saveTime(){
+    console.log("save button hit");
     let timeToSave = this.state.time;
     let newTimeRecord = [timeToSave, this.state.date];
     this.setState({
@@ -66,6 +73,7 @@ class App extends React.Component {
       saved: [...this.state.saved, newTimeRecord],
       time: 0
     });
+    console.log("saved: " + newTimeRecord);
     // implement event handler
     // verify {App.state.running == false} ***or check this Controls component's props.running
     // if {App.state.time > 0}, save in App.state and pass all the times to the <List> component
@@ -75,7 +83,8 @@ class App extends React.Component {
   handleClockTick(){ // asynchronous??
     while ((this.state.running) && (this.state.time <= this.props.maxTime)) {
       // prevent infinite loop by using the maxTime prop
-      setTimeout(this.setState({time: this.state.time + 1}), 990); 
+      setTimeout(this.setState({time: this.state.time + 1}), 990);
+      console.log("increment secon function should have run") 
       // wait 990 milliseconds before incrementing the seconds count
       // 990 is subject to change based on the time complexity/ performance of the app:
       // need to account for the milliseconds it takes to run the program
