@@ -99,7 +99,8 @@ class App extends React.Component {
   render(){
 
     return (
-     <React.Fragment className="App">
+     <React.Fragment>
+       <div className="App">
         <h1 className="App-header">Stopwatch *header*</h1>
 
         <Timer 
@@ -119,7 +120,7 @@ class App extends React.Component {
         {/* <List/> component should receive a list of times saved by user
         <List times={this.state.saved}/>
         */}
-
+      </div>
      </React.Fragment>
     );
   }
