@@ -11,7 +11,7 @@ class App extends React.Component {
       running: false, // timer is activated by pressing <Start>, deactivated by pressing <Stop> button
       time: 0, // number of seconds elapsed since pressing <Start> button
       date: '', // will hold date/time associated with when the timer was started
-      //saved: [] // list of saved times, stored as total seconds for easy comparsion
+      saved: [] // list of saved times, stored as total seconds for easy comparsion
         // the <List/> and <Timer/> components will display these times parsed out into {00:00:00} format
         // ****ADD DATE STAMP FUNCTIONALITY LATER AND USE AS TIME ID
     };
@@ -62,8 +62,8 @@ class App extends React.Component {
     let timeToSave = this.state.time;
     let newTimeRecord = [timeToSave, this.state.date];
     this.setState({
-      saved: [...this.state.saved, newTimeRecord],
       running: false,
+      saved: [...this.state.saved, newTimeRecord],
       time: 0
     });
     // implement event handler
@@ -75,7 +75,7 @@ class App extends React.Component {
   handleClockTick(){ // asynchronous??
     while ((this.state.running) && (this.state.time <= this.props.maxTime)) {
       // prevent infinite loop by using the maxTime prop
-      setTimeout(this.setState({time: this.state.time++}), 990); 
+      setTimeout(this.setState({time: this.state.time + 1}), 990); 
       // wait 990 milliseconds before incrementing the seconds count
       // 990 is subject to change based on the time complexity/ performance of the app:
       // need to account for the milliseconds it takes to run the program
