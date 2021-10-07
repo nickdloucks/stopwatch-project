@@ -35,7 +35,7 @@ class App extends React.Component {
       date: dateStamp,
       running: true
     });
-    console.log("running? " + this.state.running);
+    //console.log("running? " + this.state.running);
 
     // implement event handler
     // set App.state.running to <true> 
@@ -47,7 +47,7 @@ class App extends React.Component {
     this.setState({
       running: false
     });
-    console.log("running? " + this.state.running);
+    //console.log("running? " + this.state.running);
     // implement event handler
     // set App.state.running to <false>, which should end <clockTick> loop
   }
@@ -58,7 +58,7 @@ class App extends React.Component {
           time: 0,
           date: ''
     });
-    console.log("running? " + this.state.running);
+    //console.log("running? " + this.state.running);
     console.log("time? " + this.state.time);
     // implement event handler
     // verify {App.state.running == false} ***or check this Controls component's props.running
@@ -78,6 +78,12 @@ class App extends React.Component {
     // verify {App.state.running == false} ***or check this Controls component's props.running
     // if {App.state.time > 0}, save in App.state and pass all the times to the <List> component
     // then <List> component should dynamically render the list of saved times
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('Prev state', prevState); // Before update
+    console.log('New state', this.state); // After update 
+    console.log("running? " + this.state.running);
   }
 
   handleClockTick(){ // asynchronous??
