@@ -1,0 +1,15 @@
+10/7 8:11 am
+
+WORKING:
+buttons can set "running" properly, 
+
+PROBLEMS:
+increment time count of seconds (*CURRENTLY only increments once: loop NOT working)
+    -something is probably off in the <while> condition of <do{}while()> in <handleClocktick>
+the saved array does populate with a value when a time has run and is saved
+    -need to handle edge case: save pushed before time is started or stopped
+    -should reset BOTH set to zero AND start new time running?
+
+
+IDEAS:
+    -add lap function? maybe after everything else is functioning
