@@ -10,6 +10,11 @@ class Timer extends React.Component {
         this.dateStamp = this.props.dateStamp;
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        console.log('Prev props for Timer: ', prevProps); // Before update
+        console.log('New props: ', this.props); // After update
+    }
+
     render(){ // parse total secons into a digital clock display format:
         // only parse the timer if there is a time elapsed, otherwise display all zeroes
         if (this.timeElapsed > 0){ // if there is a totalElapsed time, render it dynamically
