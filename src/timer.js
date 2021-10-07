@@ -24,8 +24,8 @@ class Timer extends React.Component {
 
             return(
                 <div id="timer">
-                    <span id ="hours" className='timer'>{hrs.toString().padStart(2,'0')}<span class='timeColon'>:</span></span>
-                    <span id ="minutes" className='timer'>{mins.toString().padStart(2,'0')}<span class='timeColon'>:</span></span><p>:</p>
+                    <span id ="hours" className='timer'>{hrs.toString().padStart(2,'0')}<span className='timeColon'>:</span></span>
+                    <span id ="minutes" className='timer'>{mins.toString().padStart(2,'0')}<span className='timeColon'>:</span></span><p>:</p>
                     <span id ="seconds" className='timer'>{sec.toString().padStart(2,'0')}</span>
                     <br/>
                     <span>Date started: {this.dateStamp}</span>
@@ -34,7 +34,7 @@ class Timer extends React.Component {
         }else{ // if no time has elapsed or timer is not currently active, show all zeroes
             return(
                 <div id="timer">
-                    <span class='timer'>00:00:00</span>
+                    <span className='timer'>00:00:00</span>
                 </div> 
             );
         }
