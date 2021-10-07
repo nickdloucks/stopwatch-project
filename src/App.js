@@ -19,25 +19,31 @@ class App extends React.Component {
     this.stopTime = this.stopTime.bind(this);
     this.resetTime = this.resetTime.bind(this);
     this.saveTime = this.saveTime.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
+    //this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   startTime(){
-    console.log("start button hit");
-    let now = new Date(); // get the current date and save it as a stamp to identify the time when/if it gets saved
-    let dateStamp = ` Time on ${now.getMonth()+1}-${now.getDate()}-${now.getFullYear()}\
-     at ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}` // template literal for displaying date:
-          // example:{ MM-DD-YYY at 12:56:03 }
-    console.log(dateStamp + " = dateStamp for this instance of timer")
+    if(this.state.running){
+      return;
+    }else{
 
-    
-    this.setState({
-      date: dateStamp,
-      running: true
-    });
-    //console.log("running? " + this.state.running);
+      console.log("start button hit");
+      let now = new Date(); // get the current date and save it as a stamp to identify the time when/if it gets saved
+      let dateStamp = ` Time on ${now.getMonth()+1}-${now.getDate()}-${now.getFullYear()}\
+       at ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}` // template literal for displaying date:
+            // example:{ MM-DD-YYY at 12:56:03 }
+      console.log(dateStamp + " = dateStamp for this instance of timer")
+  
+      
+      this.setState({
+        date: dateStamp,
+        running: true
+      });
+  
+      this.handleClockTick();
+    }
 
-    // implement event handler
+
     // set App.state.running to <true> 
     // stamp the currnent instance of running timer with the date/time, use as a key when saved?
     // ****begin <clockTick> loop, incrementing App.state.time once for each second elapsed
@@ -84,22 +90,25 @@ class App extends React.Component {
     console.log('Prev state', prevState); // Before update
     console.log('New state', this.state); // After update 
     console.log("running? " + this.state.running);
+    console.log("time elapsed: " + this.state.time);
   }
 
   handleClockTick(){ // asynchronous??
-    while ((this.state.running) && (this.state.time <= this.props.maxTime)) {
-      // prevent infinite loop by using the maxTime prop
+    do{
       setTimeout(this.setState({time: this.state.time + 1}), 990);
-      console.log("increment secon function should have run") 
+      console.log("increment second function should have run");
+    }while ((this.state.running) && (this.state.time <= this.props.maxTime));
+      // prevent infinite loop by using the maxTime prop
       // wait 990 milliseconds before incrementing the seconds count
       // 990 is subject to change based on the time complexity/ performance of the app:
       // need to account for the milliseconds it takes to run the program
-    }
+    
     // Add another condition like a maximum time limit to prevent an infinite loop,
     // or prevent callback hell/stack overflow in a recusrive function
     // example: to make it a 48-hour maximum timer, <totSec> must be <= 172,800 to prevent infinite loop
     // ***USE shouldComponentUpdate() HOOK???
   }
+  /*
   componentDidMount(){ // 1st attempt at kicking off the timer loop,
       // intending to re-render timer each time a second passes
       // need to optimize so other components don't re-render unnecessarily
@@ -109,7 +118,7 @@ class App extends React.Component {
         time: this.state.time + 1
       }), 1000)
     }
-  }
+  }*/
 
   render(){
 
