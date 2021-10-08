@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Timer extends React.Component {
     // this component behaves as a display of the current instance of a running timer
-    // it shows the current time elapsed and wil update every time a second passes
+    // it shows the current time elapsed and should update every time a second passes
     constructor(props){
         super(props);
         this.timeElapsed = this.props.timeElapsed;
@@ -15,7 +15,7 @@ class Timer extends React.Component {
         console.log('New props: ', this.props); // After update
     }
 
-    render(){ // parse total secons into a digital clock display format:
+    render(){ // parse total seconds into a digital clock display format:
         // only parse the timer if there is a time elapsed, otherwise display all zeroes
         if (this.timeElapsed > 0){ // if there is a totalElapsed time, render it dynamically
             let totSec = this.timeElapsed;
@@ -28,10 +28,8 @@ class Timer extends React.Component {
             console.log(`totSec=${totSec}:_ hrs=${hrs}, min=${mins}, sec=${sec}`);
 
             return(
-                <div id="timer">
-                    <span id ="hours" className='timer'>{hrs.toString().padStart(2,'0')}<span className='timeColon'>:</span></span>
-                    <span id ="minutes" className='timer'>{mins.toString().padStart(2,'0')}<span className='timeColon'>:</span></span><p>:</p>
-                    <span id ="seconds" className='timer'>{sec.toString().padStart(2,'0')}</span>
+                <div id="timeAndStamp">
+                    <span id="timerString">{hrs.toString().padStart(2,'0')}:{mins.toString().padStart(2,'0')}:{sec.toString().padStart(2,'0')}</span>
                     <br/>
                     <span>Date started: {this.dateStamp}</span>
                 </div>
