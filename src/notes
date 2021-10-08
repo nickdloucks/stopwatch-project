@@ -1,7 +1,8 @@
 10/7 8:11 am
 
 WORKING:
-buttons can set "running" properly, 
+buttons can set "running" properly,
+timer string displays time properly when parsing total seconds to digital clock fromat ("00:00:00")
 
 PROBLEMS:
 increment time count of seconds (*CURRENTLY only increments once: loop NOT working)
