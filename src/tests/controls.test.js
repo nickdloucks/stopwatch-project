@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Controls from '../constrols.js';
 
 test('renders stopwatch start button', () => {
@@ -24,4 +24,8 @@ test('renders stopwatch save button', () => {
   const saveButton = screen.getByText(/save/i);
   expect(saveButton).toBeInTheDocument();
 });
-
+//--------------
+test('stop button works', ()=>{
+  render(<Controls />);
+  fireEvent()
+});
