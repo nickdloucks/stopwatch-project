@@ -18,6 +18,7 @@ class App extends React.Component {
     this.stopTime = this.stopTime.bind(this);
     this.resetTime = this.resetTime.bind(this);
     this.saveTime = this.saveTime.bind(this);
+    this.waitASec = this.waitASec.bind(this);
     //this.componentDidMount = this.componentDidMount.bind(this);
   }
 
@@ -80,11 +81,17 @@ class App extends React.Component {
     console.log("running? " + this.state.running);
     console.log("time elapsed: " + this.state.time);
   }
+  
+  waitASec = async function() {
+    setTimeout(this.setState({time: this.state.time + 1}), 990);
+  }
 
   handleClockTick(){ // asynchronous??
     do{
-      setTimeout(this.setState({time: this.state.time + 1}), 990);
+
+      this.waitASec().then(this.render());
       console.log("increment second function should have run");
+
     }while ((this.state.running) && (this.state.time <= this.props.maxTime));
       // prevent infinite loop by using the maxTime prop
       // wait 990 milliseconds before incrementing the seconds count
@@ -95,6 +102,10 @@ class App extends React.Component {
     // or prevent callback hell/stack overflow in a recusrive function
     // example: to make it a 48-hour maximum timer, <totSec> must be <= 172,800 to prevent infinite loop
     // ***USE shouldComponentUpdate() HOOK???
+  }
+
+  componentWillReceiveProps(){
+    //
   }
   /*
   componentDidMount(){ // 1st attempt at kicking off the timer loop,
