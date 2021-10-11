@@ -13,7 +13,6 @@ class App extends React.Component {
       date: '', // will hold date/time associated with when the timer was started
       saved: [] // list of saved times, stored as total seconds for easy comparsion
         // the <List/> and <Timer/> components will display these times parsed out into {00:00:00} format
-        // ****ADD DATE STAMP FUNCTIONALITY LATER AND USE AS TIME ID
     };
     this.startTime = this.startTime.bind(this);
     this.stopTime = this.stopTime.bind(this);
@@ -24,64 +23,53 @@ class App extends React.Component {
 
   startTime(){
     if(this.state.running){
-      return;
+      return; // if the timer is already running when start is pushed, this function should just terminate and
+            // let the current clock-tick loop continue
     }else{
 
       console.log("start button hit");
-      let now = new Date(); // get the current date and save it as a stamp to identify the time when/if it gets saved
+      let now = new Date(); // get the current date and save it as a stamp to identify the time for when/if it gets saved
       let dateStamp = ` Time on ${now.getMonth()+1}-${now.getDate()}-${now.getFullYear()}\
        at ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}` // template literal for displaying date:
             // example:{ MM-DD-YYY at 12:56:03 }
       console.log(dateStamp + " = dateStamp for this instance of timer")
   
-      
       this.setState({
-        date: dateStamp,
-        running: true
+        date: dateStamp, // keep track of when the timer started
+        running: true // set <running> to True so the clock-tick loop will be able to run
       });
   
-      this.handleClockTick();
+      this.handleClockTick(); // automatically kick off clock-tick loop since Start button has been pushed
     }
-
-
-    // set App.state.running to <true> 
-    // stamp the currnent instance of running timer with the date/time, use as a key when saved?
-    // ****begin <clockTick> loop, incrementing App.state.time once for each second elapsed
   }
+
   stopTime(){
     console.log("stop button hit")
     this.setState({
-      running: false
+      running: false  // set App.state.running to <false>, which should end <clockTick> loop
     });
-    //console.log("running? " + this.state.running);
-    // implement event handler
-    // set App.state.running to <false>, which should end <clockTick> loop
   }
+
   resetTime(){
     console.log("reset button hit");
     this.setState({
-          running: false,
-          time: 0,
+          running: false, // if Reset button is pushed, it should stop any timer that might already be running
+          time: 0, // reset/overwrite time elapsed to 0
           date: ''
     });
-    //console.log("running? " + this.state.running);
     console.log("time? " + this.state.time);
-    // implement event handler
-    // verify {App.state.running == false} ***or check this Controls component's props.running
-    // overwrite App.state.time to be == 0
   }
-  saveTime(){
+
+  saveTime(){ // save button can save the most recent time and also stop any timer that might be running
     console.log("save button hit");
     let timeToSave = this.state.time;
     let newTimeRecord = [timeToSave, this.state.date];
     this.setState({
-      running: false,
+      running: false, // any running timer should be stopped if Save button is pushed
       saved: [...this.state.saved, newTimeRecord],
       time: 0
     });
     console.log("saved: " + newTimeRecord);
-    // implement event handler
-    // verify {App.state.running == false} ***or check this Controls component's props.running
     // if {App.state.time > 0}, save in App.state and pass all the times to the <List> component
     // then <List> component should dynamically render the list of saved times
   }
@@ -149,6 +137,6 @@ class App extends React.Component {
     );
   }
 }
-App.defaultProps = {maxTime : 172800} // default maxTime of 48 hours to prevent infinite loop
+App.defaultProps = {maxTime : 172800} // default maxTime of 48 hours (written in seconds) to prevent infinite loop
 App.propTypes = {maxTime : PropTypes.number.isRequired}
 export default App;

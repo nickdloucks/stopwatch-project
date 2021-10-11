@@ -3,6 +3,9 @@
 WORKING:
 buttons can set "running" properly,
 timer string displays time properly when parsing total seconds to digital clock fromat ("00:00:00")
+reset button resets time to 0
+save button appends to saved array
+
 
 PROBLEMS:
 increment time count of seconds (*CURRENTLY only increments once: loop NOT working)
