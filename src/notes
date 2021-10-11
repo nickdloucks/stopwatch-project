@@ -14,6 +14,9 @@ the saved array does populate with a value when a time has run and is saved
     -need to handle edge case: save pushed before time is started or stopped
     -should reset BOTH set to zero AND start new time running?
 
+POTENTIAL SOLUTIONS:
+use generator function instead of while loop, and <yield> updated timeElapsed while <running> is true
+
 
 IDEAS:
     -add lap function? maybe after everything else is functioning
