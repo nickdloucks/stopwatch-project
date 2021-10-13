@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import Controls from '../constrols.js';
+import Controls from '../controls';
 
 test('renders stopwatch start button', () => {
   render(<Controls />);
