@@ -13,6 +13,12 @@ increment time count of seconds (*CURRENTLY only increments once: loop NOT worki
 the saved array does populate with a value when a time has run and is saved
     -need to handle edge case: save pushed before time is started or stopped
     -should reset BOTH set to zero AND start new time running?
+calling waitASec asynchronously inside render caused time elapsed to update way too quickly, 
+    and continued to update after running was set to false (because the execution of the async function was
+    designed to happen .99 seconds later)
+    -need to stop counting immediately after stop button clicked w/o causing stack overflow
+    -stack overflow happened when setState was called directly in render().
+    -not sure why an indirect call to setState (via waitASec) caused stack overflow...
 
 POTENTIAL SOLUTIONS:
 use generator function instead of while loop, and <yield> updated timeElapsed while <running> is true
