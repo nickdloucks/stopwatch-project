@@ -18,11 +18,7 @@ class App extends React.Component {
     this.stopTime = this.stopTime.bind(this);
     this.resetTime = this.resetTime.bind(this);
     this.saveTime = this.saveTime.bind(this);
-
     this.clockTick = this.clockTick.bind(this);
-
-    //this.waitASec = this.waitASec.bind(this);
-    //this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   startTime(){
@@ -42,8 +38,6 @@ class App extends React.Component {
         date: dateStamp, // keep track of when the timer started
         running: true // set <running> to True so the clock-tick loop will be able to run
       });
-  
-      //this.handleClockTick(); // automatically kick off clock-tick loop since Start button has been pushed
     }
   }
 
@@ -70,8 +64,8 @@ class App extends React.Component {
     let newTimeRecord = [timeToSave, this.state.date];
     this.setState({
       running: false, // any running timer should be stopped if Save button is pushed
-      saved: [...this.state.saved, newTimeRecord],
-      time: 0
+      saved: [...this.state.saved, newTimeRecord], // append new time to the list
+      time: 0 // reset to 0 so timer can be used again starting from 0
     });
     console.log("saved: " + newTimeRecord);
     // if {App.state.time > 0}, save in App.state and pass all the times to the <List> component
@@ -81,10 +75,10 @@ class App extends React.Component {
   clockTick(){
     if((this.state.running) && (this.state.time <= this.props.maxTime)){
       this.setState({
-        time: this.state.time + 1
+        time: this.state.time + 1 // increment the number of seconds elapsed since pressing <start> button
       })
     }else{
-      return;
+      return; // do not increment time-elapsed if the timer is no longer running or it's reached the max
     }
   }
 
@@ -93,14 +87,14 @@ class App extends React.Component {
     console.log('New state', this.state); // After update 
     console.log("running? " + this.state.running);
     console.log("time elapsed: " + this.state.time);
+    console.log("last saved time: " + this.state.saved[this.state.saved.length - 1])
 
     if(this.state.running){
-      setTimeout(this.clockTick, 990);
+      setTimeout(this.clockTick, 990); // wait almost a full second, 
+        // then increment time-elapsed if App.state.running is still true
     }
   }
   
-
-
 
   render(){
 
@@ -116,7 +110,8 @@ class App extends React.Component {
           override its timeElapsed prop with updated time from App.state.
           also override its dateStamp so it can be identified in a list of saved times*/}
 
-        <Controls running = {this.state.running} 
+        <Controls 
+          running = {this.state.running} 
           startTime = {this.startTime}
           stopTime = {this.stopTime}
           resetTime = {this.resetTime}
