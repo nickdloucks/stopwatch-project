@@ -98,10 +98,6 @@ class App extends React.Component {
       // 990 is subject to change based on the time complexity/ performance of the app:
       // need to account for the milliseconds it takes to run the program
     
-    // Add another condition like a maximum time limit to prevent an infinite loop,
-    // or prevent callback hell/stack overflow in a recusrive function
-    // example: to make it a 48-hour maximum timer, <totSec> must be <= 172,800 to prevent infinite loop
-    // ***USE shouldComponentUpdate() HOOK???
   }
 
   componentWillReceiveProps(){
@@ -131,7 +127,7 @@ class App extends React.Component {
           dateStamp = {this.state.date}
         /> {/*render <Timer> and 
           override its timeElapsed prop with updated time from App.state.
-          also override its dateStamp so it can be identified in a list of times*/}
+          also override its dateStamp so it can be identified in a list of saved times*/}
 
         <Controls running = {this.state.running} 
           startTime = {this.startTime}
@@ -140,7 +136,7 @@ class App extends React.Component {
           saveTime = {this.saveTime}
         /> {/*let the controls know whether the timer is running, and allow the buttons to access App's methods */}
 
-        {/* <List/> component should receive a list of times saved by user
+        {/* <List/> component should receive a list of times saved by user. This will be implemented after stopwatch works.
         <List times={this.state.saved}/>
         */}
       </div>

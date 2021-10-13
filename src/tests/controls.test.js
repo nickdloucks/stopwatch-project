@@ -27,5 +27,5 @@ test('renders stopwatch save button', () => {
 //--------------
 test('stop button works', ()=>{
   render(<Controls />);
-  fireEvent()
+  // implement test, possibly with fireEvent()
 });
