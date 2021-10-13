@@ -2,27 +2,25 @@
 
 WORKING:
 buttons can set "running" properly,
+clockTick works now
 timer string displays time properly when parsing total seconds to digital clock fromat ("00:00:00")
 reset button resets time to 0
 save button appends to saved array
 
 
 PROBLEMS:
-increment time count of seconds (*CURRENTLY only increments once: loop NOT working)
-    -something is probably off in the <while> condition of <do{}while()> in <handleClocktick>
 the saved array does populate with a value when a time has run and is saved
     -need to handle edge case: save pushed before time is started or stopped
-    -should reset BOTH set to zero AND start new time running?
-calling waitASec asynchronously inside render caused time elapsed to update way too quickly, 
-    and continued to update after running was set to false (because the execution of the async function was
-    designed to happen .99 seconds later)
-    -need to stop counting immediately after stop button clicked w/o causing stack overflow
-    -stack overflow happened when setState was called directly in render().
+    -should <reset> button set <state.time> to zero AND start new time running?
+componentDidUpdate increments time-elapsed, but Timer component doesn't display anything besides 00:00:00
     -not sure why an indirect call to setState (via waitASec) caused stack overflow...
 
 POTENTIAL SOLUTIONS:
-use generator function instead of while loop, and <yield> updated timeElapsed while <running> is true
+
 
 
 IDEAS:
     -add lap function? maybe after everything else is functioning
+        -will need a lap button and new handler function
+        -Timer will need to keep track of multiple times to be able to save
+            -or just add lap component, and timer only keeps track of total time
