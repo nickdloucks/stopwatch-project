@@ -29,9 +29,9 @@ class Controls extends React.PureComponent {
     render(){
         return(
             <>
-                <button onClick={this.handleStart}>Start</button>
-                <button onClick={this.handleStop}>End</button>
-                <button onClick={this.handleReset}>Reset</button>
+                <button onClick={this.handleStart}>Start</button>&nbsp;
+                <button onClick={this.handleStop}>End</button>&nbsp;
+                <button onClick={this.handleReset}>Reset</button>&nbsp;
                 <button onClick={this.handleSave}>Save</button>
             </> 
         )
