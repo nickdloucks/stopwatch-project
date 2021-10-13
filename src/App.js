@@ -18,7 +18,10 @@ class App extends React.Component {
     this.stopTime = this.stopTime.bind(this);
     this.resetTime = this.resetTime.bind(this);
     this.saveTime = this.saveTime.bind(this);
-    this.waitASec = this.waitASec.bind(this);
+
+    this.clockTick = this.clockTick.bind(this);
+
+    //this.waitASec = this.waitASec.bind(this);
     //this.componentDidMount = this.componentDidMount.bind(this);
   }
 
@@ -75,37 +78,31 @@ class App extends React.Component {
     // then <List> component should dynamically render the list of saved times
   }
 
+  clockTick(){
+    if((this.state.running) && (this.state.time <= this.props.maxTime)){
+      this.setState({
+        time: this.state.time + 1
+      })
+    }else{
+      return;
+    }
+  }
+
   componentDidUpdate(prevProps, prevState) {
     console.log('Prev state', prevState); // Before update
     console.log('New state', this.state); // After update 
     console.log("running? " + this.state.running);
     console.log("time elapsed: " + this.state.time);
+
+    if(this.state.running){
+      setTimeout(this.clockTick, 990);
+    }
   }
   
-  waitASec = async function() {
-    setTimeout(this.setState({time: this.state.time + 1}), 990);
-  }
-/*
-  handleClockTick(){ // asynchronous??
-    do{
 
-      this.waitASec().then(this.render());
-      console.log("increment second function should have run");
-      // BUG #1 PROBABLY IN WHILE LOOP, EVERYTHING SEEMS TO WORK UNTIL HERE:
-    }while ((this.state.running) && (this.state.time <= this.props.maxTime));
-      // prevent infinite loop by using the maxTime prop
-      // wait 990 milliseconds before incrementing the seconds count
-      // 990 is subject to change based on the time complexity/ performance of the app:
-      // need to account for the milliseconds it takes to run the program
-  }
-  */
 
 
   render(){
-
-    if((this.state.running) && (this.state.time <= this.props.maxTime)){
-      setTimeout(this.waitASec, 990);
-    }
 
     return (
      <React.Fragment>
