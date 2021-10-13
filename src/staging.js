@@ -32,9 +32,7 @@ asyncCall();
 
 
 
-componentWillReceiveProps(){
-    //
-  }
+//componentWillReceiveProps()
 
   /*
   componentDidMount(){ // 1st attempt at kicking off the timer loop,

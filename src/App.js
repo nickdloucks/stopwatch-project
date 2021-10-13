@@ -40,7 +40,7 @@ class App extends React.Component {
         running: true // set <running> to True so the clock-tick loop will be able to run
       });
   
-      this.handleClockTick(); // automatically kick off clock-tick loop since Start button has been pushed
+      //this.handleClockTick(); // automatically kick off clock-tick loop since Start button has been pushed
     }
   }
 
@@ -85,7 +85,7 @@ class App extends React.Component {
   waitASec = async function() {
     setTimeout(this.setState({time: this.state.time + 1}), 990);
   }
-
+/*
   handleClockTick(){ // asynchronous??
     do{
 
@@ -98,10 +98,14 @@ class App extends React.Component {
       // 990 is subject to change based on the time complexity/ performance of the app:
       // need to account for the milliseconds it takes to run the program
   }
-
+  */
 
 
   render(){
+
+    if((this.state.running) && (this.state.time <= this.props.maxTime)){
+      setTimeout(this.waitASec, 990);
+    }
 
     return (
      <React.Fragment>
