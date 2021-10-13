@@ -45,3 +45,21 @@ asyncCall();
       }), 1000)
     }
   }*/
+
+  waitASec = async function() {
+    setTimeout(this.setState({time: this.state.time + 1}), 990);
+  }
+/*
+  handleClockTick(){ // asynchronous??
+    do{
+
+      this.waitASec().then(this.render());
+      console.log("increment second function should have run");
+      // BUG #1 PROBABLY IN WHILE LOOP, EVERYTHING SEEMS TO WORK UNTIL HERE:
+    }while ((this.state.running) && (this.state.time <= this.props.maxTime));
+      // prevent infinite loop by using the maxTime prop
+      // wait 990 milliseconds before incrementing the seconds count
+      // 990 is subject to change based on the time complexity/ performance of the app:
+      // need to account for the milliseconds it takes to run the program
+  }
+  */
