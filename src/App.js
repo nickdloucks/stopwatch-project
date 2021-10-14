@@ -83,11 +83,11 @@ class App extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('Prev state', prevState); // Before update
-    console.log('New state', this.state); // After update 
-    console.log("running? " + this.state.running);
+    //console.log('Prev state', prevState); // Before update
+    //console.log('New state', this.state); // After update 
+    //console.log("running? " + this.state.running);
     console.log("time elapsed: " + this.state.time);
-    console.log("last saved time: " + this.state.saved[this.state.saved.length - 1] + " seconds")
+    //console.log("last saved time: " + this.state.saved[this.state.saved.length - 1] + " seconds")
 
     if(this.state.running){
       setTimeout(this.clockTick, 990); // wait almost a full second, 

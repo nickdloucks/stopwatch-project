@@ -11,8 +11,10 @@ class Timer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
+        console.log("TIMER UPDATES:");
         console.log('Prev props for Timer: ', prevProps); // Before update
         console.log('New props: ', this.props); // After update
+
     }
 
     render(){ // parse total seconds into a digital clock display format:

@@ -6,7 +6,7 @@ clockTick works now
 timer string displays time properly when parsing total seconds to digital clock fromat ("00:00:00")
 reset button resets time to 0
 save button appends to saved array
-
+TIMER is receiving updated props, but not re-rendering
 
 PROBLEMS:
 the saved array does populate with a value when a time has run and is saved
@@ -14,6 +14,8 @@ the saved array does populate with a value when a time has run and is saved
     -should <reset> button set <state.time> to zero AND start new time running?
 componentDidUpdate increments time-elapsed, but Timer component doesn't display anything besides 00:00:00
     -not sure why an indirect call to setState (via waitASec) caused stack overflow...
+timer not re-rendering when it gets new props
+
 
 POTENTIAL SOLUTIONS:
 
