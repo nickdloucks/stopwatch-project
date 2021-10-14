@@ -87,7 +87,7 @@ class App extends React.Component {
     console.log('New state', this.state); // After update 
     console.log("running? " + this.state.running);
     console.log("time elapsed: " + this.state.time);
-    console.log("last saved time: " + this.state.saved[this.state.saved.length - 1])
+    console.log("last saved time: " + this.state.saved[this.state.saved.length - 1] + " seconds")
 
     if(this.state.running){
       setTimeout(this.clockTick, 990); // wait almost a full second, 
@@ -101,7 +101,7 @@ class App extends React.Component {
     return (
      <React.Fragment>
        <div className="App">
-        <h1 className="App-header">Stopwatch *header*</h1>
+        <h1>Stopwatch</h1>
 
         <Timer 
           timeElapsed = {this.state.time}
