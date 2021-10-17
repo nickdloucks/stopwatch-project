@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
-class Timer extends React.Component {
+function Timer(props) {
     // this component behaves as a display of the current instance of a running timer
     // it shows the current time elapsed and should update every time a second passes
-    constructor(props){
+    /*constructor(props){
         super(props);
         this.timeElapsed = this.props.timeElapsed;
         this.dateStamp = this.props.dateStamp;
@@ -15,7 +15,8 @@ class Timer extends React.Component {
         console.log('Prev props for Timer: ', prevProps); // Before update
         console.log('New props: ', this.props); // After update
 
-    }
+    }*/
+// Convert to functional component
 
     render(){ // parse total seconds into a digital clock display format:
         // only parse the timer if there is a time elapsed, otherwise display all zeroes
