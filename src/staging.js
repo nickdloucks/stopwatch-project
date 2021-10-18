@@ -129,7 +129,7 @@ function Timer(timeElapsed) {
         console.log('Prev props for Timer: ', prevProps); // Before update
         console.log('New props: ', this.props); // After update
 
-    }*/
+    }
 // Convert to functional component
 
     render(){ // parse total seconds into a digital clock display format:
@@ -169,3 +169,4 @@ Timer.propTypes = {
     dateStamp: PropTypes.string.isRequired
 };
 export default Timer;
+*/
