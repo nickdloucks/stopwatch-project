@@ -21,7 +21,7 @@ const Timer = function({timeElapsed, dateStamp}) {
       <div id="timeAndStamp">
         <span id="timerString">{hrs.toString().padStart(2,'0')}:{mins.toString().padStart(2,'0')}:{sec.toString().padStart(2,'0')}</span>
         <br/>
-        <span>{`Date started: ${dateStamp}`}</span>
+        <span>Date started: {dateStamp}</span>
       </div>
     );
   } else { // if no time has elapsed or timer is not currently active, show all zeroes
