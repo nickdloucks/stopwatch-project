@@ -8,7 +8,7 @@ class Controls extends React.PureComponent {
     constructor(props){
         super(props);
         this.handleStart = this.handleStart.bind(this);
-        this.handleStop = this.handleStop.bind(this);
+        this.handlePause = this.handlePause.bind(this);
         this.handleReset = this.handleReset.bind(this);
         this.handleSave = this.handleSave.bind(this);
     }
@@ -16,8 +16,8 @@ class Controls extends React.PureComponent {
     handleStart(){
         this.props.startTime(); // tell App.js to start the timer
     }
-    handleStop(){
-        this.props.stopTime(); // tell App.js to stop the timer
+    handlePause(){
+        this.props.pauseTime(); // tell App.js to pause the timer
     }
     handleReset(){
         this.props.resetTime(); // tell App.js to reset the timer
@@ -30,7 +30,7 @@ class Controls extends React.PureComponent {
         return(
             <>
                 <button onClick={this.handleStart}>Start</button>&nbsp;
-                <button onClick={this.handleStop}>End</button>&nbsp;
+                <button onClick={this.handlePause}>Pause</button>&nbsp;
                 <button onClick={this.handleReset}>Reset</button>&nbsp;
                 <button onClick={this.handleSave}>Save</button>
             </> 
@@ -39,7 +39,7 @@ class Controls extends React.PureComponent {
 }
 Controls.propTypes = {
     startTime: PropTypes.func.isRequired,
-    stopTime: PropTypes.func.isRequired,
+    pauseTime: PropTypes.func.isRequired,
     resetTime: PropTypes.func.isRequired,
     saveTime: PropTypes.func.isRequired
 };

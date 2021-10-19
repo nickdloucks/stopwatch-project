@@ -15,7 +15,7 @@ class App extends React.Component {
         // the <List/> and <Timer/> components will display these times parsed out into {00:00:00} format
     };
     this.startTime = this.startTime.bind(this);
-    this.stopTime = this.stopTime.bind(this);
+    this.pauseTime = this.pauseTime.bind(this);
     this.resetTime = this.resetTime.bind(this);
     this.saveTime = this.saveTime.bind(this);
     this.clockTick = this.clockTick.bind(this);
@@ -41,10 +41,12 @@ class App extends React.Component {
     }
   }
 
-  stopTime(){
-    console.log("stop button hit")
+
+  pauseTime(){
+    console.log("pause button hit")
     this.setState({
       running: false  // set App.state.running to <false>, which should end <clockTick> loop
+          // but leave time at its current value, in case user wants to continue timing
     });
   }
 
@@ -113,7 +115,7 @@ class App extends React.Component {
         <Controls 
           running = {this.state.running} 
           startTime = {this.startTime}
-          stopTime = {this.stopTime}
+          pauseTime = {this.pauseTime}
           resetTime = {this.resetTime}
           saveTime = {this.saveTime}
         /> {/*let the controls know whether the timer is running, and allow the buttons to access App's methods */}
