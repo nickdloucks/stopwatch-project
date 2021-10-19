@@ -7,10 +7,10 @@ test('renders stopwatch start button', () => {
   expect(startButton).toBeInTheDocument();
 });
 
-test('renders stopwatch stop button', () => {
+test('renders stopwatch pause button', () => {
   render(<Controls />);
-  const stopButton = screen.getByText(/end/i);
-  expect(stopButton).toBeInTheDocument();
+  const pauseButton = screen.getByText(/pause/i);
+  expect(pauseButton).toBeInTheDocument();
 });
 
 test('renders stopwatch reset button', () => {
