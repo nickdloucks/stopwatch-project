@@ -19,7 +19,7 @@ class List extends React.Component {
 
     render(){
         const ordered = this.props.times
-            .map(({timer})=> {timer})
+            .map(timer => timer)
             .sort((timerA, timerB) => timerA.time >= timerB.time);
         const times = ordered.map(timer => 
             <li>{<Timer timeElapsed={timer.time} dateStamp={timer.date} />}

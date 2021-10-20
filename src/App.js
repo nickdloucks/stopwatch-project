@@ -1,6 +1,7 @@
 import React from 'react';
 import {default as Timer} from './timer.js';
 import {default as Controls} from './controls.js';
+import {default as List} from './list'
 import PropTypes from 'prop-types';
 import './App.css';
 
