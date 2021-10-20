@@ -12,13 +12,17 @@ class List extends React.Component {
     }
 
     deleteTime(){
+        return;
         // delete the record from the list
         // use a callback funtion (passed as props to List) to update
     }
 
     render(){
-        const times = this.props.times.map(time => 
-            <li>{<Timer timeElapsed={time} />}
+        const ordered = this.props.times
+            .map(({timer})=> {timer})
+            .sort((timerA, timerB) => timerA.time >= timerB.time);
+        const times = ordered.map(timer => 
+            <li>{<Timer timeElapsed={timer.time} dateStamp={timer.date} />}
                 <button onClick = {this.deleteTime}>&nbsp;X&nbsp;</button>
             </li>);
             // make sure the list can pull both the time and it's stamp identifier: 
@@ -28,6 +32,7 @@ class List extends React.Component {
             // add "personal record" indicator to best time
         return(
             <>
+                <p>Saved times:</p>
                 <ol>
                     {times}
                 </ol>

@@ -63,7 +63,10 @@ class App extends React.Component {
   saveTime(){ // save button can save the most recent time and also stop any timer that might be running
     console.log("save button hit");
     let timeToSave = this.state.time;
-    let newTimeRecord = [timeToSave, this.state.date];
+    let newTimeRecord = { // new time obejct which will be a completed timer and the date it was started
+      time: timeToSave, 
+      date: this.state.date
+    };
     this.setState({
       running: false, // any running timer should be stopped if Save button is pushed
       saved: [...this.state.saved, newTimeRecord], // append new time to the list
@@ -120,9 +123,7 @@ class App extends React.Component {
           saveTime = {this.saveTime}
         /> {/*let the controls know whether the timer is running, and allow the buttons to access App's methods */}
 
-        {/* <List/> component should receive a list of times saved by user. This will be implemented after stopwatch works.
-        <List times={this.state.saved}/>
-        */}
+        <List times={this.state.saved} />
       </div>
      </React.Fragment>
     );
