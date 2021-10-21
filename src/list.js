@@ -10,12 +10,12 @@ class List extends React.Component {
             savedTimes: [] // move state of saved times down to this child List component to manage in List's scope
         }
     }
-
-    deleteTime(){
-        return;
+    /*
+    delTime(date2Del){ // parameter: date to delete
+        this.props.deleteTime(date2Del);
         // delete the record from the list
         // use a callback funtion (passed as props to List) to update
-    }
+    }*/
 
     render(){
         const ordered = this.props.times
@@ -23,7 +23,7 @@ class List extends React.Component {
             .sort((timerA, timerB) => timerA.time >= timerB.time);
         const times = ordered.map(timer => 
             <li>{<Timer timeElapsed={timer.time} dateStamp={timer.date} />}
-                <button onClick = {this.deleteTime}>&nbsp;X&nbsp;</button>
+                <button onClick = {this.props.delTime(timer.date)}>&nbsp;X&nbsp;</button>
             </li>);
             // make sure the list can pull both the time and it's stamp identifier: 
                         // add stamp parameter to .map() callback somehow

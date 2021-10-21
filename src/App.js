@@ -19,6 +19,7 @@ class App extends React.Component {
     this.pauseTime = this.pauseTime.bind(this);
     this.resetTime = this.resetTime.bind(this);
     this.saveTime = this.saveTime.bind(this);
+    this.deleteTime = this.deleteTime.bind(this);
     this.clockTick = this.clockTick.bind(this);
   }
 
@@ -78,6 +79,11 @@ class App extends React.Component {
     // then <List> component should dynamically render the list of saved times
   }
 
+  deleteTime(timeDate){ // date of timer will be a parameter
+    let time2Del = this.state.saved.reduce(timeObj => timeDate === timeObj.date);
+    // FIND BETTER WAY TO DO THIS
+  }
+
   clockTick(){
     if((this.state.running) && (this.state.time <= this.props.maxTime)){
       this.setState({
@@ -124,7 +130,7 @@ class App extends React.Component {
           saveTime = {this.saveTime}
         /> {/*let the controls know whether the timer is running, and allow the buttons to access App's methods */}
 
-        <List times={this.state.saved} />
+        <List times = {this.state.saved} detele = {this.deleteTime} />
       </div>
      </React.Fragment>
     );
