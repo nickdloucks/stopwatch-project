@@ -80,10 +80,8 @@ class App extends React.Component {
   }
 
   deleteTime(timeDate){ // date of timer will be a parameter
-    let filtered = this.state.saved.filter(timeObj => timeDate !== timeObj.date);
-    console.log(filtered);
     this.setState({
-      saved: filtered
+      saved: this.state.saved.filter(timeObj => timeObj.date !== timeDate)
     });
   }
 
