@@ -1,14 +1,15 @@
 import React from 'react';
 import {default as Timer} from './timer.js';
+import PropTypes from 'prop-types';
 
 class List extends React.Component {
     constructor(props){
         super(props);
         this.delTime = this.delTime.bind(this);
 
-        this.state = {
+        /*this.state = {
             savedTimes: [] // move state of saved times down to this child List component to manage in List's scope
-        }
+        }*/
     }
 
     delTime(date2Del){ // parameter: date to delete
@@ -18,7 +19,7 @@ class List extends React.Component {
     }
 
     render(){
-        const ordered = this.props.times
+        const ordered = this.props.list
             .sort((timerA, timerB) => timerA.time >= timerB.time); // sort times by stortest to longest
         const savedTimes = ordered.map(timer => 
             <li key = {timer.date}>{<Timer timeElapsed={timer.time} dateStamp={timer.date} />}
@@ -44,5 +45,8 @@ class List extends React.Component {
         
     }
 }
-
+List.propTypes = {
+    list: PropTypes.array.isRequired,
+    delete: PropTypes.func.isRequired
+}
 export default List;

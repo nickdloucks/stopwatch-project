@@ -134,7 +134,7 @@ class App extends React.Component {
           saveTime = {this.saveTime}
         /> {/*let the controls know whether the timer is running, and allow the buttons to access App's methods */}
 
-        <List times = {this.state.saved} delete = {this.deleteTime} />
+        <List list = {this.state.saved} delete = {this.deleteTime} />
       </div>
      </React.Fragment>
     );
