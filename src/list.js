@@ -4,7 +4,7 @@ import {default as Timer} from './timer.js';
 class List extends React.Component {
     constructor(props){
         super(props);
-        this.deleteTime = this.deleteTime.bind(this);
+        //this.deleteTime = this.deleteTime.bind(this);
 
         this.state = {
             savedTimes: [] // move state of saved times down to this child List component to manage in List's scope
@@ -22,8 +22,8 @@ class List extends React.Component {
             .map(timer => timer)
             .sort((timerA, timerB) => timerA.time >= timerB.time);
         const times = ordered.map(timer => 
-            <li>{<Timer timeElapsed={timer.time} dateStamp={timer.date} />}
-                <button onClick = {this.props.delTime(timer.date)}>&nbsp;X&nbsp;</button>
+            <li key = {timer.date}>{<Timer timeElapsed={timer.time} dateStamp={timer.date} />}
+                <button onClick = {this.props.delete(timer.date)}>&nbsp;X&nbsp;</button>
             </li>);
             // make sure the list can pull both the time and it's stamp identifier: 
                         // add stamp parameter to .map() callback somehow
