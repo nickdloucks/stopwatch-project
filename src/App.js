@@ -80,8 +80,11 @@ class App extends React.Component {
   }
 
   deleteTime(timeDate){ // date of timer will be a parameter
-    let time2Del = this.state.saved.reduce(timeObj => timeDate === timeObj.date);
-    // FIND BETTER WAY TO DO THIS
+    let filtered = this.state.saved.filter(timeObj => timeDate !== timeObj.date);
+    console.log(filtered);
+    this.setState({
+      saved: filtered
+    });
   }
 
   clockTick(){
@@ -130,7 +133,7 @@ class App extends React.Component {
           saveTime = {this.saveTime}
         /> {/*let the controls know whether the timer is running, and allow the buttons to access App's methods */}
 
-        <List times = {this.state.saved} detele = {this.deleteTime} />
+        <List times = {this.state.saved} delete = {this.deleteTime} />
       </div>
      </React.Fragment>
     );
