@@ -64,6 +64,9 @@ class App extends React.Component {
 
   saveTime(){ // save button can save the most recent time and also stop any timer that might be running
     console.log("save button hit");
+    if(this.state.time === 0){
+      return; // avoids duplicate key problem in saved list when <Save> button hit twice
+    }
     let timeToSave = this.state.time;
     let newTimeRecord = { // new time obejct which will be a completed timer and the date it was started
       time: timeToSave, 
