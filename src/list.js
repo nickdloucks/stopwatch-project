@@ -1,5 +1,4 @@
 import React from 'react';
-import {default as Timer} from './timer.js';
 import {default as SavedTime} from './savedTime';
 import PropTypes from 'prop-types';
 
