@@ -169,4 +169,29 @@ Timer.propTypes = {
     dateStamp: PropTypes.string.isRequired
 };
 export default Timer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li key = {timer.date}>{<Timer timeElapsed={timer.time} dateStamp={timer.date} />}
+                <button onClick = {this.delTime}>&nbsp;X&nbsp;</button>
+            </li>);
+
+
+
+
 */
