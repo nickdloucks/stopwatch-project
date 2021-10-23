@@ -16,7 +16,10 @@ class List extends React.Component {
     render(){
         const ordered = this.props.list
             .sort((timerA, timerB) => timerA.time >= timerB.time); // sort times by stortest to longest
-        const savedTimes = ordered.map(timer => <SavedTime timeRecord={timer} deleteLI={this.delTime} />);
+        const savedTimes = ordered.map(timer => <li key={timer.date}>
+                <SavedTime timeRecord={timer} deleteLI={this.delTime} />
+            </li>
+            );
             // delTime calls the App's delete method
             // make sure the list can pull both the time and it's stamp identifier: 
             // add stamp parameter to .map() callback somehow            
