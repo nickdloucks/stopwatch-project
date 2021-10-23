@@ -15,10 +15,10 @@ class SavedTime extends React.Component{
 
     render(){
         return(
-            <li key = {this.props.timeRecord.date}>
+            <>
                 {<Timer timeElapsed={this.props.timeRecord.time} dateStamp={this.props.timeRecord.date} />}
                 <button onClick = {this.delRecord}>&nbsp;X&nbsp;</button>
-            </li>
+            </>
         )
     }
 }
