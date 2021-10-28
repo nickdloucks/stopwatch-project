@@ -43,6 +43,7 @@ class Controls extends React.PureComponent {
 }
 Controls.propTypes = {
     startTime: PropTypes.func.isRequired,
+    lap: PropTypes.func.isRequired,
     pauseTime: PropTypes.func.isRequired,
     resetTime: PropTypes.func.isRequired,
     saveTime: PropTypes.func.isRequired
