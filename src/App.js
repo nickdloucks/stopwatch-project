@@ -139,7 +139,8 @@ class App extends React.Component {
           also override its dateStamp so it can be identified in a list of saved times*/}
 
         <Controls 
-          running = {this.state.running} 
+          running = {this.state.running}
+          lap = {this.newLap}
           startTime = {this.startTime}
           pauseTime = {this.pauseTime}
           resetTime = {this.resetTime}

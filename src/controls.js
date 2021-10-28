@@ -16,6 +16,9 @@ class Controls extends React.PureComponent {
     handleStart(){
         this.props.startTime(); // tell App.js to start the timer
     }
+    handleLap(){
+        this.props.lap(); // tell App.js to save a new lap time
+    }
     handlePause(){
         this.props.pauseTime(); // tell App.js to pause the timer
     }
@@ -30,6 +33,7 @@ class Controls extends React.PureComponent {
         return(
             <>
                 <button onClick={this.handleStart}>Start</button>&nbsp;
+                <button onClick={this.handleLap}>Lap</button>&nbsp;
                 <button onClick={this.handlePause}>Pause</button>&nbsp;
                 <button onClick={this.handleReset}>Reset</button>&nbsp;
                 <button onClick={this.handleSave}>Save</button>
