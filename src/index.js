@@ -12,7 +12,7 @@ ReactDOM.render(
     */}
   </React.StrictMode>,
   document.getElementById('root')
-);
+); // App renders with functioning timer, saved/sorted list, and delete button removes correct time. 10/28/21
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
