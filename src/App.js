@@ -12,10 +12,13 @@ class App extends React.Component {
       running: false, // timer is activated by pressing <Start>, deactivated by pressing <Stop> button
       time: 0, // number of seconds elapsed since pressing <Start> button
       date: '', // will hold date/time associated with when the timer was started
-      saved: [] // list of saved times, stored as total seconds for easy comparsion
+      saved: [], // list of saved times, stored as total seconds for easy comparsion
         // the <List/> and <Timer/> components will display these times parsed out into {00:00:00} format
+      lap: 1, // current lap; increments with each push of "lap" button
+      lapTimes: [], // holds the values (# of seconds) of each lap
     };
     this.startTime = this.startTime.bind(this);
+    this.newLap = this.newLap.bind(this);
     this.pauseTime = this.pauseTime.bind(this);
     this.resetTime = this.resetTime.bind(this);
     this.saveTime = this.saveTime.bind(this);
@@ -43,9 +46,18 @@ class App extends React.Component {
     }
   }
 
+  newLap(){
+    console.log("lap button hit");
+    const lapTotal = this.state.lapTimes.reduce((a,b) => a + b);
+    this.setState({
+      running: true,
+      lap: this.state.lap + 1,
+      lapTimes: [...this.state.lapTimes, (this.state.time - lapTotal)]
+    })
+  }
 
   pauseTime(){
-    console.log("pause button hit")
+    console.log("pause button hit");
     this.setState({
       running: false  // set App.state.running to <false>, which should end <clockTick> loop
           // but leave time at its current value, in case user wants to continue timing
