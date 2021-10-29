@@ -8,6 +8,7 @@ class Controls extends React.PureComponent {
     constructor(props){
         super(props);
         this.handleStart = this.handleStart.bind(this);
+        this.handleLap= this.handleLap.bind(this);
         this.handlePause = this.handlePause.bind(this);
         this.handleReset = this.handleReset.bind(this);
         this.handleSave = this.handleSave.bind(this);
