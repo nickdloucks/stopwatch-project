@@ -15,7 +15,8 @@ class App extends React.Component {
       saved: [], // list of saved times, stored as total seconds for easy comparsion
         // the <List/> and <Timer/> components will display these times parsed out into {00:00:00} format
       lap: 1, // current lap; increments with each push of "lap" button
-      lapTimes: [], // holds the values (# of seconds) of each lap
+      lapTimes: [0], // holds the values (# of seconds) of each lap
+      // start array with 0 (for lap # 0) so the lap function does not reduce an empty array in <newLap> method
     };
     this.startTime = this.startTime.bind(this);
     this.newLap = this.newLap.bind(this);
