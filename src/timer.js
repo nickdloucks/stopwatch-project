@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const Timer = function({timeElapsed, dateStamp}) {
   /** this component behaves as a display of the current instance of a running timer. 
