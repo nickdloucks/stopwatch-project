@@ -25,7 +25,7 @@ test('renders stopwatch save button', () => {
   expect(saveButton).toBeInTheDocument();
 });
 //--------------
-test('stop button works', ()=>{
+test('stop button works', () => {
   render(<Controls />);
   // implement test, possibly with fireEvent()
 });

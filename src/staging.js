@@ -1,40 +1,40 @@
-import App from "./App"
+import App from './App';
 
-function* newSecond(){
-    if ((App.state.running) && (this.state.time <= this.props.maxTime)){
-        yield App.state.time;
-        App.setState({
-            time: this.state.time + 1
-        });
-    }
+function* newSecond() {
+  if (App.state.running && this.state.time <= this.props.maxTime) {
+    yield App.state.time;
+    App.setState({
+      time: this.state.time + 1,
+    });
+  }
 }
 
 //////
 
 function waitASec() {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve(`current time = ${App.state.time}`);
-      }, 990);
-    });
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(`current time = ${App.state.time}`);
+    }, 990);
+  });
 }
-  
+
 async function addNewSec() {
-    console.log('calling');
-    const result = await waitASec();
-    console.log(result);
-    result.then(setState({
-        time: App.state.time + 1
-    }))
-}  
+  console.log('calling');
+  const result = await waitASec();
+  console.log(result);
+  result.then(
+    setState({
+      time: App.state.time + 1,
+    })
+  );
+}
 
 asyncCall();
 
-
-
 //componentWillReceiveProps()
 
-  /*
+/*
   componentDidMount(){ // 1st attempt at kicking off the timer loop,
       // intending to re-render timer each time a second passes
       // need to optimize so other components don't re-render unnecessarily
@@ -46,9 +46,9 @@ asyncCall();
     }
   }*/
 
-  waitASec = async function() {
-    setTimeout(this.setState({time: this.state.time + 1}), 990);
-  }
+waitASec = async function () {
+  setTimeout(this.setState({ time: this.state.time + 1 }), 990);
+};
 /*
   handleClockTick(){ // asynchronous??
     do{
@@ -66,49 +66,53 @@ asyncCall();
 /////////////////////////
 
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
-const Timer = function(timeElapsed, dateStamp) {
-  /** this component behaves as a display of the current instance of a running timer. 
-    * it shows the current time elapsed and should update every time a second passes
-    */ 
+const Timer = function (timeElapsed, dateStamp) {
+  /** this component behaves as a display of the current instance of a running timer.
+   * it shows the current time elapsed and should update every time a second passes
+   */
   // parse total seconds into a digital clock display format:
   // only parse the timer if there is a time elapsed, otherwise display all zeroes
-  if (this.timeElapsed > 0){ // if there is a totalElapsed time, render it dynamically
+  if (this.timeElapsed > 0) {
+    // if there is a totalElapsed time, render it dynamically
     let totSec = this.timeElapsed;
     let sec = totSec % 60;
     let mins_hrs = totSec - sec; // total number of seconds that add up to complete minutes
-      // total seconds with remainder (less than 60 sec) cut off
+    // total seconds with remainder (less than 60 sec) cut off
     let mins = (mins_hrs / 60) % 60; // total minutes less than an hour
     let hrs = (totSec - (totSec % 3600)) / 3600; // hours
 
     console.log(`totSec=${totSec}:_ hrs=${hrs}, min=${mins}, sec=${sec}`);
 
-    return(
+    return (
       <div id="timeAndStamp">
-        <span id="timerString">{hrs.toString().padStart(2,'0')}:{mins.toString().padStart(2,'0')}:{sec.toString().padStart(2,'0')}</span>
-        <br/>
+        <span id="timerString">
+          {hrs.toString().padStart(2, '0')}:{mins.toString().padStart(2, '0')}:
+          {sec.toString().padStart(2, '0')}
+        </span>
+        <br />
         <span>Date started: {this.dateStamp}</span>
       </div>
     );
-  } else { // if no time has elapsed or timer is not currently active, show all zeroes
-      return(
-        <div id="timer">
-          <span className='timer'>00:00:00</span>
-        </div> 
+  } else {
+    // if no time has elapsed or timer is not currently active, show all zeroes
+    return (
+      <div id="timer">
+        <span className="timer">00:00:00</span>
+      </div>
     );
-  }  
-}
+  }
+};
 Timer.defaultProps = {
-    timeElapsed: 0,
-    dateStamp: ''
+  timeElapsed: 0,
+  dateStamp: '',
 };
 Timer.propTypes = {
-    timeElapsed: PropTypes.number.isRequired,
-    dateStamp: PropTypes.string.isRequired
+  timeElapsed: PropTypes.number.isRequired,
+  dateStamp: PropTypes.string.isRequired,
 };
 export default Timer;
-
 
 //////////////////////////////------------------------original, class verion:
 /*
