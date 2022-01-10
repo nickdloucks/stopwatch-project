@@ -13,7 +13,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "prettier": "prettier --config .prettierrc.json ./src/**/*.{js,ts} --write",
+    "prettier": "prettier --config .prettierrc.json ./src/**/*.{js,ts,css} --write",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
