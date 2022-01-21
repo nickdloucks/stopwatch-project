@@ -3,7 +3,8 @@ import { default as Timer } from './libs/components/timer';
 import { default as Controls } from './libs/components/controls';
 import { default as List } from './libs/components/list';
 import PropTypes from 'prop-types';
-import './App.css';
+//import './App.css';
+import './libs/style/nick-style-lib.css';
 
 class App extends React.Component {
   constructor(props) {
