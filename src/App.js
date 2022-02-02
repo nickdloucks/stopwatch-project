@@ -54,6 +54,7 @@ class App extends React.Component {
   }
 
   resetTime() {
+    console.clear();
     console.log('reset button hit');
     this.setState({
       running: false, // if Reset button is pushed, it should stop any timer that might already be running
@@ -65,6 +66,7 @@ class App extends React.Component {
 
   saveTime() {
     // save button can save the most recent time and also stop any timer that might be running
+    console.clear();
     console.log('save button hit');
     if (this.state.time === 0) {
       return; // avoids duplicate key problem in saved list when <Save> button hit twice
@@ -80,7 +82,7 @@ class App extends React.Component {
       saved: [...this.state.saved, newTimeRecord], // append new time to the list
       time: 0, // reset to 0 so timer can be used again starting from 0
     });
-    console.log('saved: ' + newTimeRecord);
+    console.log('saved: ' + newTimeRecord.time + ' ' + newTimeRecord.date);
     // if {App.state.time > 0}, save in App.state and pass all the times to the <List> component
     // then <List> component should dynamically render the list of saved times
   }
@@ -102,13 +104,8 @@ class App extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    //console.log('Prev state', prevState); // Before update
-    //console.log('New state', this.state); // After update
-    //console.log("running? " + this.state.running);
+  componentDidUpdate() {
     console.log('time elapsed: ' + this.state.time);
-    //console.log("last saved time: " + this.state.saved[this.state.saved.length - 1] + " seconds")
-
     if (this.state.running) {
       setTimeout(this.clockTick, 990); // wait almost a full second,
       // then increment time-elapsed if App.state.running is still true
