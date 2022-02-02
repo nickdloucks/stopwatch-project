@@ -73,7 +73,7 @@ a:visited{
 }
 
 .good-button{
-    color: #000000;
+    color: #ffffff;
     background-color: var(--nick-green, green);
     padding: 1rem;
     transition: padding border 0.5s ease-in-out 0.25s;
@@ -82,7 +82,7 @@ a:visited{
 .good-button:hover{
     border-style: solid #000000 2px;
     color: #ffffff;
-    padding: 1.5rem;
+    font-size: 1.5em;
     font-style: italic;
 }
 .good-button:active{
@@ -90,7 +90,7 @@ a:visited{
     text-decoration: underline;
 }
 .bad-button{
-    color: #000000;
+    color: #ffffff;
     background-color: var(--nick-red, red);
     padding: 1rem;
     transition: padding border 0.5s ease-in-out 0.25s;
@@ -99,7 +99,7 @@ a:visited{
 .bad-button:hover{
     border-style: solid #000000 2px;
     color: #ffffff;
-    padding: 1.5rem;
+    font-size: 1.5em;
     font-style: italic;
 }
 .bad-button:active{
@@ -107,7 +107,7 @@ a:visited{
     text-decoration: underline;
 }
 .neutral-button{
-    color: #000000;
+    color: #ffffff;
     background-color: var(--nick-blue, blue);
     padding: 1rem;
     transition: padding border 0.5s ease-in-out 0.25s;
@@ -116,7 +116,7 @@ a:visited{
 .neutral-button:hover{
     border-style: solid #000000 2px;
     color: #ffffff;
-    padding: 1.5rem;
+    font-size: 1.5em;
     font-style: italic;
 }
 .neutral-button:active{
