@@ -29,10 +29,10 @@ class Controls extends React.PureComponent {
   render() {
     return (
       <>
-        <button className='.good-button' onClick={this.handleStart}>Start</button>&nbsp;
-        <button className={'.neutral-button'} onClick={this.handlePause}>Pause</button>&nbsp;
-        <button onClick={this.handleReset}>Reset</button>&nbsp;
-        <button onClick={this.handleSave}>Save</button>
+        <button className={'good-button'} onClick={this.handleStart}>Start</button>&nbsp;
+        <button className={'neutral-button'} onClick={this.handlePause}>Pause</button>&nbsp;
+        <button className={'bad-button'} onClick={this.handleReset}>Reset</button>&nbsp;
+        <button className={'neutral-button'} onClick={this.handleSave}>Save</button>
       </>
     );
   }

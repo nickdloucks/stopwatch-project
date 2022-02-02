@@ -22,7 +22,7 @@ class SavedTime extends React.Component {
             dateStamp={this.props.timeRecord.date}
           />
         }
-        <button onClick={this.delRecord}>&nbsp;X&nbsp;</button>
+        <button className={'bad-button'} onClick={this.delRecord}>&nbsp;X&nbsp;</button>
       </>
     );
   }
