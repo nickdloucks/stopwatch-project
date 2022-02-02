@@ -14,15 +14,21 @@ class SavedTime extends React.Component {
   }
 
   render() {
+    const listStyle = {
+      padding: '0.8em',
+      fontSize: '0.8em' 
+    }
     return (
       <>
         {
           <Timer
+            style={{display:'inline-block'}}
             timeElapsed={this.props.timeRecord.time}
             dateStamp={this.props.timeRecord.date}
           />
         }
-        <button className={'bad-button'} onClick={this.delRecord}>&nbsp;X&nbsp;</button>
+        <button className={'bad-button'} style={listStyle}
+        onClick={this.delRecord}>&nbsp;X&nbsp;</button>
       </>
     );
   }
