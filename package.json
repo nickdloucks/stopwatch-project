@@ -23,7 +23,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b main -d build",
+    "deploy": "gh-pages -d build",
     "prettier": "prettier --config .prettierrc.json ./src/**/*.{js,ts,css} --write",
     "start": "react-scripts start",
     "build": "react-scripts build",
