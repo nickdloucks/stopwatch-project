@@ -23,7 +23,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build",
+    "deploy": "gh-pages -b main -d build",
     "prettier": "prettier --config .prettierrc.json ./src/**/*.{js,ts,css} --write",
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -44,5 +44,5 @@
     "react-scripts": "^4.0.3",
     "prettier": "^2.5.1"
   },
-  "homepage": "https://nickdloucks.github.io/stopwatch-project"
+  "homepage": "https://nickdloucks.github.io/stopwatch-project/build"
 }
