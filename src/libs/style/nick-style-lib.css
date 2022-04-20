@@ -21,7 +21,6 @@
 /* ROOT */
 html {
     font-size: 24px; /* default font size for root of document */
-    
 }
 
 /* TEXT ELEMENTS */
@@ -33,6 +32,14 @@ h1, h2, h3, h4, h5, h6 {
 
 p, pre, section, div, li {
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    padding: 0.8em;
+    box-sizing: border-box;
+    margin: 0.8em;
+}
+
+label {
+    font-family: Lucida Bright, Georgia, serif;
     font-size: 0.8em;
     padding: 0.8em;
     box-sizing: border-box;
@@ -69,20 +76,21 @@ a:active{
     color: var(--nick-lime, lime);
 }
 a:visited{
-    color: var(--nick-dk-gray, indigo);
+    color: var(--nick-orange, orange);
 }
 
 .good-button{
-    color: #ffffff;
+    color: #000000;
     background-color: var(--nick-green, green);
-    padding: 1rem;
+    padding: 0.5rem;
+    margin: 10px;
     transition: padding border 0.5s ease-in-out 0.25s;
     border-radius: 0.25rem;
 }
 .good-button:hover{
     border-style: solid #000000 2px;
     color: #ffffff;
-    font-size: 1.5em;
+    padding: 0.75em;
     font-style: italic;
 }
 .good-button:active{
@@ -90,16 +98,17 @@ a:visited{
     text-decoration: underline;
 }
 .bad-button{
-    color: #ffffff;
+    color: #000000;
     background-color: var(--nick-red, red);
-    padding: 1rem;
+    padding: 0.5rem;
+    margin: 10px;
     transition: padding border 0.5s ease-in-out 0.25s;
     border-radius: 0.25rem;
 }
 .bad-button:hover{
     border-style: solid #000000 2px;
     color: #ffffff;
-    font-size: 1.5em;
+    padding: 0.75em;
     font-style: italic;
 }
 .bad-button:active{
@@ -107,16 +116,17 @@ a:visited{
     text-decoration: underline;
 }
 .neutral-button{
-    color: #ffffff;
+    color: #000000;
     background-color: var(--nick-blue, blue);
-    padding: 1rem;
+    padding: 0.5rem;
+    margin: 10px;
     transition: padding border 0.5s ease-in-out 0.25s;
     border-radius: 0.25rem;
 }
 .neutral-button:hover{
     border-style: solid #000000 2px;
     color: #ffffff;
-    font-size: 1.5em;
+    padding: 0.75em;
     font-style: italic;
 }
 .neutral-button:active{
@@ -130,6 +140,23 @@ a:visited{
 
 .grid-container {
     display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+    grid-auto-rows: minmax(30px, auto);
     grid-gap: 20px;
     padding: 10px;
+    border-radius: 0.25rem;
+}
+
+
+tr:nth-child(even){
+    background-color: var(--nick-dull-gold);
+}
+tr:hover{
+    background-color: var(--nick-yellow);
+}
+th{
+    padding: 10px;
+    text-align: left;
+    background-color: var(--nick-maroon);
+    color: #ffffff;
 }
