@@ -107,7 +107,7 @@ class App extends React.Component {
   componentDidUpdate() {
     console.log('time elapsed: ' + this.state.time);
     if (this.state.running) {
-      setTimeout(this.clockTick, 990); // wait almost a full second,
+      setTimeout(this.clockTick, 1000); // wait a full second,
       // then increment time-elapsed if App.state.running is still true
     }
   }
