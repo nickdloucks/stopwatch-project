@@ -21,7 +21,6 @@
 /* ROOT */
 html {
     font-size: 24px; /* default font size for root of document */
-    color:#000000;
 }
 
 /* TEXT ELEMENTS */
@@ -87,14 +86,11 @@ a:visited{
     margin: 10px;
     transition: padding border 0.5s ease-in-out 0.25s;
     border-radius: 0.25rem;
-    background-image: linear-gradient(45deg, var(--nick-lime), var(--nick-green));
-    border-style: solid;
-    border-color: #000000;
-    border-width: 2px;
 }
 .good-button:hover{
     border-style: solid #000000 2px;
     color: #ffffff;
+    padding: 0.75em;
     font-style: italic;
 }
 .good-button:active{
@@ -108,14 +104,11 @@ a:visited{
     margin: 10px;
     transition: padding border 0.5s ease-in-out 0.25s;
     border-radius: 0.25rem;
-    background-image: linear-gradient(45deg, #ff0000, #800000);
-    border-style: solid;
-    border-color: #000000;
-    border-width: 2px;
 }
 .bad-button:hover{
     border-style: solid #000000 2px;
     color: #ffffff;
+    padding: 0.75em;
     font-style: italic;
 }
 .bad-button:active{
@@ -129,14 +122,11 @@ a:visited{
     margin: 10px;
     transition: padding border 0.5s ease-in-out 0.25s;
     border-radius: 0.25rem;
-    background-image: linear-gradient(45deg, #000bff, #00008b);
-    border-style: solid;
-    border-color: #000000;
-    border-width: 2px;
 }
 .neutral-button:hover{
     border-style: solid #000000 2px;
     color: #ffffff;
+    padding: 0.75em;
     font-style: italic;
 }
 .neutral-button:active{
@@ -148,37 +138,15 @@ a:visited{
     display: flex;
 }
 
-li{
-	display: inline;
-    list-style-type: none;
-}
-
 .grid-container {
-    font-size: 1rem;
-    height: max-content;
-    width: 1fr;
     display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+    grid-auto-rows: minmax(30px, auto);
+    grid-gap: 20px;
+    padding: 10px;
     border-radius: 0.25rem;
-    background-color: #000000;
-    list-style-type: none;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
-    /* grid-auto-rows: minmax(30px, auto); */
-    grid-gap: 24px;
-    padding: 2rem;
-    justify-items: center;
-    align-items: center;
 }
 
-.grid-item{
-    width: max-content;
-    margin: 1em, 3em;
-    
-}
-
-label{
-    display: inline;
-}
 
 tr:nth-child(even){
     background-color: var(--nick-dull-gold);
@@ -192,4 +160,3 @@ th{
     background-color: var(--nick-maroon);
     color: #ffffff;
 }
-
