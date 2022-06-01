@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/stopwatch-project/public/index.html/static/css/main.b0fd30d0.chunk.css",
-    "main.js": "/stopwatch-project/public/index.html/static/js/main.1c086b64.chunk.js",
-    "main.js.map": "/stopwatch-project/public/index.html/static/js/main.1c086b64.chunk.js.map",
-    "runtime-main.js": "/stopwatch-project/public/index.html/static/js/runtime-main.717039a7.js",
-    "runtime-main.js.map": "/stopwatch-project/public/index.html/static/js/runtime-main.717039a7.js.map",
-    "static/js/2.47fdfb10.chunk.js": "/stopwatch-project/public/index.html/static/js/2.47fdfb10.chunk.js",
-    "static/js/2.47fdfb10.chunk.js.map": "/stopwatch-project/public/index.html/static/js/2.47fdfb10.chunk.js.map",
-    "static/js/3.76ea3ab9.chunk.js": "/stopwatch-project/public/index.html/static/js/3.76ea3ab9.chunk.js",
-    "static/js/3.76ea3ab9.chunk.js.map": "/stopwatch-project/public/index.html/static/js/3.76ea3ab9.chunk.js.map",
-    "index.html": "/stopwatch-project/public/index.html/index.html",
-    "static/css/main.b0fd30d0.chunk.css.map": "/stopwatch-project/public/index.html/static/css/main.b0fd30d0.chunk.css.map",
-    "static/js/2.47fdfb10.chunk.js.LICENSE.txt": "/stopwatch-project/public/index.html/static/js/2.47fdfb10.chunk.js.LICENSE.txt"
+    "main.css": "/stopwatch-project/static/css/main.3af6e3d2.chunk.css",
+    "main.js": "/stopwatch-project/static/js/main.686dc3be.chunk.js",
+    "main.js.map": "/stopwatch-project/static/js/main.686dc3be.chunk.js.map",
+    "runtime-main.js": "/stopwatch-project/static/js/runtime-main.28804696.js",
+    "runtime-main.js.map": "/stopwatch-project/static/js/runtime-main.28804696.js.map",
+    "static/js/2.47fdfb10.chunk.js": "/stopwatch-project/static/js/2.47fdfb10.chunk.js",
+    "static/js/2.47fdfb10.chunk.js.map": "/stopwatch-project/static/js/2.47fdfb10.chunk.js.map",
+    "static/js/3.76ea3ab9.chunk.js": "/stopwatch-project/static/js/3.76ea3ab9.chunk.js",
+    "static/js/3.76ea3ab9.chunk.js.map": "/stopwatch-project/static/js/3.76ea3ab9.chunk.js.map",
+    "index.html": "/stopwatch-project/index.html",
+    "static/css/main.3af6e3d2.chunk.css.map": "/stopwatch-project/static/css/main.3af6e3d2.chunk.css.map",
+    "static/js/2.47fdfb10.chunk.js.LICENSE.txt": "/stopwatch-project/static/js/2.47fdfb10.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.717039a7.js",
+    "static/js/runtime-main.28804696.js",
     "static/js/2.47fdfb10.chunk.js",
-    "static/css/main.b0fd30d0.chunk.css",
-    "static/js/main.1c086b64.chunk.js"
+    "static/css/main.3af6e3d2.chunk.css",
+    "static/js/main.686dc3be.chunk.js"
   ]
 }
